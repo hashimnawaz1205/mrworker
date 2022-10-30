@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MR Worker</string>
+    <string name="title_activity_main">MrWorker</string>
+    <string name="package_name">pk.mrworker.mrworker</string>
+    <string name="custom_url_scheme">pk.mrworker.mrworker</string>
+    <string name="default_notification_channel_id">pk.mrworker.mrworker.urgent</string>
+</resources>

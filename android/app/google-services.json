@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "432160706126",
+    "project_id": "mrworker-a17a9",
+    "storage_bucket": "mrworker-a17a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432160706126:android:2ea9e45efc3e9628b4bd1f",
+        "android_client_info": {
+          "package_name": "pk.mrworker.mrworker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432160706126-2etqn2238geth3gg63g5k8hagutdga5l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pk.mrworker.mrworker",
+            "certificate_hash": "be70b4d6000a5c3ebf3a05ff92c8fd9a4615c8cb"
+          }
+        },
+        {
+          "client_id": "432160706126-j07i14il56uivqdgtbunauc7onve1743.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD27GLvoCPPHrFFCbgVVnlOpWHZ6hT4NrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432160706126-j07i14il56uivqdgtbunauc7onve1743.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "432160706126-jver1scp7sdn6plu538uh78nnp4ur17e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mrWorker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
