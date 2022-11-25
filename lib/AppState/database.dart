@@ -72,16 +72,12 @@ class DataBase extends ChangeNotifier {
   String get errorMessageLogin => _errorMessageLogin;
 
   Future<void> userLogin(String phone, String password) async {
-    String completeurl = 'https://mrworker.pk/API/loginapi.php?phone=' +
-        phone +
-        '&password=' +
-        password;
+    String completeurl =
+        'https://mrworker.pk/API/loginapi.php?phone=$phone&password=$password';
     print(completeurl);
     final response = await http.get(
-      Uri.parse('https://mrworker.pk/API/loginapi.php?phone=' +
-          phone +
-          '&password=' +
-          password),
+      Uri.parse(
+          'https://mrworker.pk/API/loginapi.php?phone=$phone&password=$password'),
     );
     if (response.statusCode == 200) {
       try {
@@ -121,16 +117,8 @@ class DataBase extends ChangeNotifier {
 
   Future<void> userRegister(String name, String email, String password,
       String phone, String image) async {
-    String completeurl = 'https://mrworker.pk/API/registrationapi.php?name=' +
-        name +
-        '&email=' +
-        email +
-        '&password=' +
-        password +
-        '&phone=' +
-        phone +
-        '&image=' +
-        image;
+    String completeurl =
+        'https://mrworker.pk/API/registrationapi.php?name=$name&email=$email&password=$password&phone=$phone&image=$image';
     print(completeurl);
     final response;
 
@@ -140,14 +128,14 @@ class DataBase extends ChangeNotifier {
     if (Profilepicture != null) {
       String base64Image = base64Encode(Profilepicture!.readAsBytesSync());
       String fileName = Profilepicture!.path.split("/").last;
-      print(Profilepicture.toString() + 'picture printing');
+      print('${Profilepicture}picture printing');
 
       response = await http.post(Uri.parse(completeurl), body: {
         "image": base64Image,
         "name": fileName,
       });
       if (response.statusCode == 200) {
-        print(response.body.toString() + "  printing mapregister");
+        print("${response.body}  printing mapregister");
 
         try {
           _mapRegister = jsonDecode(response.body);
@@ -194,32 +182,16 @@ class DataBase extends ChangeNotifier {
     String whatsapp,
     String city,
   ) async {
-    String URL = 'https://mrworker.pk/API/registrationapi.php?name=' +
-        name +
-        '&email=' +
-        email +
-        '&password=' +
-        password +
-        '&phone=' +
-        phone +
-        '&about=' +
-        Bio +
-        '&speciality=' +
-        speciality +
-        '&city=' +
-        city +
-        '&facebook=' +
-        fb_link +
-        '&whatsapp=' +
-        whatsapp;
+    String URL =
+        'https://mrworker.pk/API/registrationapi.php?name=$name&email=$email&password=$password&phone=$phone&about=$Bio&speciality=$speciality&city=$city&facebook=$fb_link&whatsapp=$whatsapp';
     print(URL);
     final response;
     response = await http.post(Uri.parse(URL));
-    print("printing responce" + response.toString());
+    print("printing responce$response");
 
     if (response.statusCode == 200) {
       mapUserRegister = jsonDecode(response.body);
-      print('prinitng From Map' + mapUserRegister.toString());
+      print('prinitng From Map$mapUserRegister');
       print('its 200');
       print(response.body.toString());
 
@@ -230,10 +202,10 @@ class DataBase extends ChangeNotifier {
       image = _mapRegister['user']['image'].toString();
       print(_mapRegister.toString());
       addAuth(id, name, email, password, phone, image);
-      print(id.toString() + 'printing id');
+      print('${id}printing id');
 
       var abPost = jsonDecode(response.body);
-      print(abPost.toString() + 'ab post');
+      print('${abPost}ab post');
       print('ab ye jae ga Login py');
       notifyListeners();
     }
@@ -318,11 +290,7 @@ class DataBase extends ChangeNotifier {
     //     lat+',' + lng+'&key=AIzaSyA_LoRMvCG3IiIXtGcEybX6eyd0ijKFZAw&sensor=false';
     // print(completeurl);
     final response = await http.get(Uri.parse(
-        'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-            lat +
-            ',' +
-            lng +
-            '&key=AIzaSyA_LoRMvCG3IiIXtGcEybX6eyd0ijKFZAw&sensor=false'));
+        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&key=AIzaSyA_LoRMvCG3IiIXtGcEybX6eyd0ijKFZAw&sensor=false'));
 
     if (response.statusCode == 200) {
       try {
@@ -358,7 +326,7 @@ class DataBase extends ChangeNotifier {
     x = await position.latitude;
     y = await position.longitude;
     Getlocation(x.toString(), y.toString());
-    print(lastPosition.toString() + 'last position');
+    print('${lastPosition}last position');
     notifyListeners();
   }
 
@@ -380,7 +348,7 @@ class DataBase extends ChangeNotifier {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('Cityname', Cityname);
     Cityname = prefs.getString('Cityname') ?? '';
-    print('printing city name' + Cityname);
+    print('printing city name$Cityname');
     SetCityForSearchbar(Cityname.toString());
 
     notifyListeners();
@@ -494,11 +462,7 @@ class DataBase extends ChangeNotifier {
 
   Future<void> Search(String curl, String city) async {
     final response = await http.get(
-      Uri.parse('https://mrworker.pk/API/search?' +
-          'city=' +
-          city +
-          '&type_tag=' +
-          curl),
+      Uri.parse('https://mrworker.pk/API/search?city=$city&type_tag=$curl'),
     );
     if (response.statusCode == 200) {
       try {
@@ -641,11 +605,7 @@ class DataBase extends ChangeNotifier {
 
   Future<void> Search1(String curl, String city) async {
     final response = await http.get(
-      Uri.parse('https://mrworker.pk/API/search?' +
-          'city=' +
-          city +
-          '&type_tag=' +
-          curl),
+      Uri.parse('https://mrworker.pk/API/search?city=$city&type_tag=$curl'),
     );
     if (response.statusCode == 200) {
       try {
@@ -712,7 +672,7 @@ class DataBase extends ChangeNotifier {
     if (response.statusCode == 200) {
       try {
         _mapEmergency_Search = jsonDecode(response.body);
-        print('Printing emergency services' + _mapEmergency_Search.toString());
+        print('Printing emergency services$_mapEmergency_Search');
         _errorEmergency_Search = false;
       } catch (e) {
         _errorEmergency_Search = true;
@@ -782,31 +742,13 @@ class DataBase extends ChangeNotifier {
       required String area,
       required String whatsapp,
       required String fb_link}) async {
-    String completeurl = 'https://mrworker.pk/API/registrationapi.php?name=' +
-        name +
-        '&email=' +
-        email +
-        '&password=' +
-        password +
-        '&about=' +
-        about +
-        '&phone=' +
-        phone +
-        '&speciality=' +
-        speciality +
-        '&city=' +
-        city +
-        '&area=' +
-        area +
-        '&whatsapp=' +
-        whatsapp +
-        '&fb_link=' +
-        fb_link;
+    String completeurl =
+        'https://mrworker.pk/API/registrationapi.php?name=$name&email=$email&password=$password&about=$about&phone=$phone&speciality=$speciality&city=$city&area=$area&whatsapp=$whatsapp&fb_link=$fb_link';
     print(completeurl);
     if (Profilepicture != null) {
       String base64Image = base64Encode(Profilepicture!.readAsBytesSync());
       String fileName = Profilepicture!.path.split("/").last;
-      print(Profilepicture.toString() + 'picture printing');
+      print('${Profilepicture}picture printing');
 
       var response = await http.post(Uri.parse(completeurl), body: {
         "profileImage": base64Image,
@@ -868,7 +810,7 @@ class DataBase extends ChangeNotifier {
     if (ProjectImage != null) {
       String base64Image = base64Encode(ProjectImage!.readAsBytesSync());
       String fileName = ProjectImage!.path.split("/").last;
-      print(ProjectImage.toString() + ' project image printing');
+      print('$ProjectImage project image printing');
 
       var response = await http.post(Uri.parse(completeurl), body: {
         "image": base64Image,
@@ -880,7 +822,7 @@ class DataBase extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         print('Status is 200');
-        print(response.body.toString() + "printing responce");
+        print("${response.body}printing responce");
         try {
           _mapAddproject = jsonDecode(response.body);
 
@@ -922,14 +864,14 @@ class DataBase extends ChangeNotifier {
     String completeurl = 'https://mrworker.pk/API/add_gallery_images?';
     for (var i = 0; i < imageFileList!.length; i++) {
       print(i.toString());
-      File? galleryimage = File(imageFileList![i]!.path);
+      File? galleryimage = File(imageFileList![i].path);
 
       print(galleryimage);
 
-      String base64Image = base64Encode(galleryimage!.readAsBytesSync());
-      print(base64Image.toString() + 'base64');
-      String fileName = galleryimage!.path.split("/").last;
-      print(galleryimage.toString() + ' project image printing');
+      String base64Image = base64Encode(galleryimage.readAsBytesSync());
+      print('${base64Image}base64');
+      String fileName = galleryimage.path.split("/").last;
+      print('$galleryimage project image printing');
 
       var response = await http.post(Uri.parse(completeurl), body: {
         "image": base64Image,
@@ -995,6 +937,18 @@ class DataBase extends ChangeNotifier {
 
     _errorMessageEmergency_Search = '';
 
+    notifyListeners();
+  }
+
+//for search city
+
+  bool isTyping = false;
+
+  void searchData(String text) {
+    if (text.isNotEmpty) {
+      isTyping = true;
+      notifyListeners();
+    }
     notifyListeners();
   }
 }

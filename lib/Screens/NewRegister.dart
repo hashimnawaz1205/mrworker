@@ -96,68 +96,69 @@ class RegisterNew extends StatelessWidget {
                   ],
                 ),
               ),
-              InkWell(
-                onTap: () async {
-                  var pickedFile = await ImagePicker()
-                      .pickImage(source: ImageSource.gallery);
+              // InkWell(
+              //   onTap: () async {
+              //     var pickedFile = await ImagePicker()
+              //         .pickImage(source: ImageSource.gallery);
 
-                  dbclass.setProfileImage(File(pickedFile!.path));
-                },
-                child: Consumer<DataBase>(builder: (context, value, child) {
-                  return value.Profilepicture != null
-                      ? SizedBox(
-                          width: double.infinity,
-                          height: 150,
-                          child: CircleAvatar(
-                            child: ClipOval(
-                              child: Image.file(
-                                value.Profilepicture!,
-                                fit: BoxFit.cover,
-                                width: 150,
-                              ),
-                            ),
-                          ),
-                        )
-                      : Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            const SizedBox(
-                              width: double.infinity,
-                              height: 200,
-                              child: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                    "https://cdn2.vectorstock.com/i/1000x1000/17/61/male-avatar-profile-picture-vector-10211761.jpg"),
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Colors.black38,
-                                borderRadius: BorderRadius.circular(18),
-                                border: Border.all(color: Colors.black),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 16.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      'Edit',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Icon(
-                                      Icons.edit,
-                                      color: Colors.white,
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        );
-                }),
-              ),
+              // dbclass.setProfileImage(File(pickedFile!.path));
+              //   },
+              //   child: Consumer<DataBase>(builder: (context, value, child) {
+              //     return value.Profilepicture != null
+              //         ? SizedBox(
+              //             width: double.infinity,
+              //             height: 150,
+              //             child: CircleAvatar(
+              //               child: ClipOval(
+              //                 child: Image.file(
+              //                   value.Profilepicture!,
+              //                   fit: BoxFit.cover,
+              //                   width: 150,
+              //                 ),
+              //               ),
+              //             ),
+              //           )
+              //         : Stack(
+              //             alignment: Alignment.center,
+              //             children: [
+              //               const SizedBox(
+              //                 width: double.infinity,
+              //                 height: 200,
+              //                 child: CircleAvatar(
+              //                   backgroundImage: NetworkImage(
+              //                       "https://cdn2.vectorstock.com/i/1000x1000/17/61/male-avatar-profile-picture-vector-10211761.jpg"),
+              //                 ),
+              //               ),
+              //               Container(
+              //                 width: 100,
+              //                 height: 40,
+              //                 decoration: BoxDecoration(
+              //                   color: Colors.black38,
+              //                   borderRadius: BorderRadius.circular(18),
+              //                   border: Border.all(color: Colors.black),
+              //                 ),
+              //                 child: Padding(
+              //                   padding: const EdgeInsets.only(left: 16.0),
+              //                   child: Row(
+              //                     mainAxisAlignment: MainAxisAlignment.start,
+              //                     children: const [
+              //                       Text(
+              //                         'Edit',
+              //                         style: TextStyle(color: Colors.white),
+              //                       ),
+              //                       Icon(
+              //                         Icons.edit,
+              //                         color: Colors.white,
+              //                       )
+              //                     ],
+              //                   ),
+              //                 ),
+              //               )
+              //             ],
+              //           );
+              //   }),
+              // ),
+
               Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.all(10),
@@ -274,6 +275,7 @@ class RegisterNew extends StatelessWidget {
                   },
                 ),
               ),
+
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextFormField(

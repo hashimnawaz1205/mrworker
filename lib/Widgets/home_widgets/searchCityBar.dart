@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mrworker/AppState/database.dart';
+import 'package:mrworker/searchpage.dart';
 import 'package:provider/provider.dart';
 import '../../Screens/Api/user_api.dart';
 import '../../Screens/data/network_type.dart';
@@ -35,10 +36,24 @@ class SearchCityBar extends StatelessWidget {
           Row(
             children: [
               const Icon(Icons.search),
-              SizedBox(
-                height: 50,
-                width: 200,
-                child: NetworkTypeAheadPage(),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => SearchPage(),
+                    ),
+                  );
+                },
+                child: Container(
+                    height: 50,
+                    width: 200,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 15.0),
+                      child: Text('Search Here'),
+                    )
+
+                    //NetworkTypeAheadPage(),
+                    ),
               ),
             ],
           ),

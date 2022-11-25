@@ -19,7 +19,7 @@ class profilepage extends StatelessWidget {
     final phoneController = TextEditingController(text: dbclass.phone);
     final emailController = TextEditingController(text: dbclass.email);
     final aboutController = TextEditingController();
-    final cityController = TextEditingController();
+    final cityController = TextEditingController(text: dbclass.Cityname);
     final specialityController = TextEditingController();
     final areaController = TextEditingController();
     final whatsappController = TextEditingController();

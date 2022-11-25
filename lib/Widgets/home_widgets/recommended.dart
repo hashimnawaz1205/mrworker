@@ -98,7 +98,7 @@ class Recommended extends StatelessWidget {
                                           image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: CachedNetworkImageProvider(
-                                                map['image']),
+                                                map['image'].toString()),
                                           ),
                                         ),
                                       ),
@@ -113,19 +113,24 @@ class Recommended extends StatelessWidget {
                                                       .size
                                                       .width /
                                                   2,
-                                              child: Text(
-                                                map['name'],
-                                                style: GoogleFonts.ubuntu(
-                                                    fontSize: 16.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 20.0),
+                                                child: Text(
+                                                  map['name'].toString(),
+                                                  style: GoogleFonts.ubuntu(
+                                                      fontSize: 16.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black),
+                                                ),
                                               ),
                                             ),
                                             const SizedBox(
                                               height: 10,
                                             ),
                                             Text(
-                                              map['city'],
+                                              map['city'].toString(),
                                               style: GoogleFonts.ubuntu(
                                                   fontSize: 12.0,
                                                   color: Colors.black),
@@ -139,7 +144,7 @@ class Recommended extends StatelessWidget {
                                                 ),
                                                 Expanded(
                                                   child: Text(
-                                                    map['area'],
+                                                    map['area'].toString(),
                                                     maxLines: 1,
                                                     style: GoogleFonts.ubuntu(
                                                         fontSize: 12.0,
@@ -158,10 +163,10 @@ class Recommended extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(2.0),
                                       child: Text(
-                                        map['speciality'],
+                                        map['speciality'].toString(),
                                         style: GoogleFonts.ubuntu(
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w600,
                                             color: Colors.black),
                                       ),
                                     ),

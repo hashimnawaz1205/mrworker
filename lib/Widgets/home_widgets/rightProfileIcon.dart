@@ -64,15 +64,15 @@ class RightProfileIcon extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    //mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(top: 50, right: 50),
                         child: Container(
-                          padding: const EdgeInsets.all(3.0),
-                          width: MediaQuery.of(context).size.width / 2.5,
+                          //padding: const EdgeInsets.all(3.0),
+                          width: MediaQuery.of(context).size.width * 0.45,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5.0),
                             color: Colors.white,
